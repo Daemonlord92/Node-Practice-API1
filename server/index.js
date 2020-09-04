@@ -72,7 +72,7 @@ server.delete('/users/:id', (req, res) => {
     const found = users.some(idFilter(req));
 
     if (found) {
-        res.json({
+        res.status(200).json({
             msg: 'User deleted',
             users: users.filter(user => !idFilter(req)(user))
         });
